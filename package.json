@@ -2,12 +2,14 @@
     "id": "google-play-music",
     "name": "Google Play Music",
     "version": "1.0.0",
-    "description": "Google Play Music Audio Player",
+    "description": "Google Play Music Player",
     "main": "index.js",
     "author": "Don Oerkfitz <don@oerkfitz.com>",
     "license": "MIT",
-    "repository": "https://git.oerkfitz.com/Projects/franz-google-play-music",
+    "repository": "https://github.com/agodlydeciple/franz-google-play-music",
     "config": {
-        "serviceURL": "https://play.google.com/music/listen?u=0#/home"
+        "serviceURL": "https://play.google.com/music/listen?u=0#/home",
+        "hasNotificationSound": false,
+        "hasTeamID": false
     }
 }
