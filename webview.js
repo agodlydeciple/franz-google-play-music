@@ -1,21 +1,25 @@
 // gpm integration
 /*jshint esversion: 6 */
-module.exports = (Franz) => {
-    function getMessages() {
-        try {
-            let direct = 0;
-            let indirect = 0;
-            let FranzData = (document.querySelector("#FranzMessages") === null ? false : document.querySelector("#FranzMessages").dataset);
-            if (FranzData !== false) {
-                direct = FranzData.direct;
-                indirect = FranzData.indirect;
-            }
+const path = require("path");
 
-            Franz.setBadge(direct, indirect);
+module.exports = (Franz) => {
+    function Main() {
+        try {
+            let nowPlaying = getNowPlaying();
+
+            // let styles = path.join(__dirname, "css/custom-style.css");
+
+            // Franz.injectCSS(styles);
+
+            Franz.setBadge(1);
         } catch (error) {
             console.log(error);
         }
     }
 
-    Franz.loop(getMessages);
+    function getNowPlaying() {
+        return (document.getElementById("currently-playing-title").firstChild.data + " - " + document.getElementById("player-artist").firstChild.data);
+    }
+
+    Franz.loop(Main);
 };
